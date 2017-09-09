@@ -5,13 +5,28 @@
     height:600px;
     margin: auto;
     margin-top: 10px;
-    background: #51565b;
+    background: #2c3e50;
     font-size:25px;
 
 }
- 
+
+
+  /* .calculatorBody >div {
+  width:100%;
+  
+}   */
+ .t{height:37px;
+  color:white;
+  
+}
+ .z{height:37px;
+  background: white;
+}
+ .y{height:37px;
+  color:white;
+  }
  .x{height:37px;
-    
+    background: white;
   margin-bottom: 40PX;}
 
 .mathtable{height:450px;
@@ -22,22 +37,6 @@ height:50px;
 }  
 
 .rows  > div {float:left;height:100%;width:60px;text-align: center;color:white;}
-.t{height:37px;
-border-style: solid;
-    border-color: #51565b;
-  }
-  .z{height:37px;
-border-style: solid;
-    border-color: #51565b;
-  }
-  .y{height:37px;
-    border-style: solid;
-    border-color: #51565b;
-  }
-.x{height:37px;
-border-style: solid;
-    border-color: #51565b;
-  }
 
   
  /* #blue{
@@ -55,7 +54,3 @@ border-style: solid;
 
   
 } 
-.screen{
-  background: black;
-  color:red;
-}
