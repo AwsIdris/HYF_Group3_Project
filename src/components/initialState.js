@@ -1,7 +1,7 @@
 export default {
-    stackt:'',
-    stackz:'',
-    stacky:'',
-    stackx:'',
+    stackt:'0',
+    stackz:'0',
+    stacky:'0',
+    stackx:'0',
     keyStatus: false
   } 
