@@ -20,10 +20,10 @@ export default class DisplayScreen extends React.Component {
 
 		return (
 			<div className="calculator-display">
-          <div >{store.state.stackt}</div>
-          <div >{store.state.stackz}</div>
-          <div >{store.state.stacky}</div>
-          <div >{store.state.stackx}</div>
+          <div className="stackDiv">{store.state.stackt}</div>
+          <div className="stackDiv">{store.state.stackz}</div>
+          <div className="stackDiv">{store.state.stacky}</div>
+          <div className="stackDiv">{store.state.stackx}</div>
       </div>
 			)
 	}

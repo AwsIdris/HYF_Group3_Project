@@ -1,12 +1,13 @@
 .mathtable {
   padding-top: 5px;
   width: 400px;
-  height: 370px;
+  height: 380px;
   border-color: #000000;
   box-shadow:inset 1px 3px 5px  #000000;
-  background-color:#F9F9F9;
   border-bottom: none;
-  border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 15px 15px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E6E6E6)); 
+
 }
 .CalculatorKey {
   font-size: 15px;
@@ -14,40 +15,66 @@
   border: none;
   width :60px;
   height: 25px;
-  background-color:#E5FFCC;
-  color:#4A6751;
-  border-radius: 5%;
-  text-shadow: -0.5px 0.5px #029D74;
-  box-shadow: 0 2px #029D74;  
+  color:#FFFFFF;
+  font-size: 15px;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#66696b), to(#303F42));
+  background: -moz-linear-gradient(#66696b, #303F42);
+  background: linear-gradient(#66696b, #303F42);
+  border: solid 1px #b4b4b4;
+  border-bottom: solid 1.5px #878787;
+  box-shadow: inset 0 0 0 0.5px #66696b;
+  color: #FFFFFF;
+  text-shadow: 0 0.5px 0 #d6d6d6;
+  border-radius: 3px 3px 3px 3px;  
 }
 
 .CalculatorKey.KeyPad-ENTER {
-  color:#FFFFFF;
-  border: none;
   width :140px;
   height: 25px;
-  background-color:#8B7D7B;
-  border-radius: 4%;
-  text-shadow: -0.5px 1px #029D74;
-  box-shadow: 0 2px #029D74; 
+  color:#FFFFFF;
+  font-size: 15px;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#66696b), to(#303F42));
+  background: -moz-linear-gradient(#66696b, #303F42);
+  background: linear-gradient(#66696b, #303F42);
+  border: solid 1px #b4b4b4;
+  border-bottom: solid 1.5px #878787;
+  box-shadow: inset 0 0 0 0.5px #66696b;
+  color: #FFFFFF;
+  text-shadow: 0 0.5px 0 #d6d6d6;
+  border-radius: 0px 0px 10px 10px; 
+
 }
 
 .CalculatorKey.KeyPad-CHC, 
 .CalculatorKey.KeyPad-EEX,
 .CalculatorKey.KeyPad-CLx{
   color:#FFFFFF;
-  background-color:#8B7D7B;
-  box-shadow: 0 2px #029D74; 
+  font-size: 15px;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#66696b), to(#303F42));
+  background: -moz-linear-gradient(#66696b, #303F42);
+  background: linear-gradient(#66696b, #303F42);
+  border: solid 1px #b4b4b4;
+  border-bottom: solid 1.5px #878787;
+  box-shadow: inset 0 0 0 0.5px #66696b;
+  color: #FFFFFF;
+  text-shadow: 0 0.5px 0 #d6d6d6;
+  border-radius: 3px 3px 3px 3px;   
 }
 
 .CalculatorKey.KeyPad--,
 .CalculatorKey.KeyPad-x,
 .CalculatorKey.KeyPad-÷ {
   color:#FFFFFF;
-  font-size: 20px;
-  background-color:#8B7D7B;
-  box-shadow: 0 2px #029D74; 
-}
+  font-size: 15px;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#66696b), to(#303F42));
+  background: -moz-linear-gradient(#66696b, #303F42);
+  background: linear-gradient(#66696b, #303F42);
+  border: solid 1px #b4b4b4;
+  border-bottom: solid 1.5px #878787;
+  box-shadow: inset 0 0 0 0.5px #66696b;
+  color: #FFFFFF;
+  text-shadow: 0 0.5px 0 #d6d6d6;
+} 
 
 .CalculatorKey.KeyPad-1,
 .CalculatorKey.KeyPad-2,
@@ -66,10 +93,15 @@
   border: none;
   width :60px;
   height: 30px;
-  background-color:#E5FFCC;
-  color:#4A6751;
-  border-radius: 5%;
-  text-shadow: -0.5px 0.5px #029D74;
-  box-shadow: 0 2px #029D74;  
+  background: #FFFFDD;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFFFDD), to(#868686));
+  background: -moz-linear-gradient(#FFFFDD, #DEDECD);
+  background: linear-gradient(#FFFFDD, #DEDECD);
+  border: solid 1px #b4b4b4;
+  border-bottom: solid 3px #878787;
+  box-shadow: inset 0 0 0 1px #e3e3e3;
+  color: #555;
+  text-shadow: 0 1px 0 #d6d6d6;
+  border-radius: 0px 0px 7px 7px;
 }
 

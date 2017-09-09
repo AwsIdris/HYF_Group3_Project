@@ -49,7 +49,7 @@ let reterndValue='';
           stackx:parseFloat(this.state.stacky)-parseFloat(this.state.stackx),
            }));
         break;
-        case ".":var strn=(this.state.stackx).toString();if (!(strn).includes('.')){
+        case "◘":var strn=(this.state.stackx).toString();if (!(strn).includes('◘')){
 
          reterndValue= (this.setState({stackx:this.state.stackx+value})) }else{
            reterndValue=(this.setState({stackx:this.state.stackx}))
