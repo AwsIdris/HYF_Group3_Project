@@ -1,0 +1,75 @@
+.mathtable {
+  padding-top: 5px;
+  width: 400px;
+  height: 370px;
+  border-color: #000000;
+  box-shadow:inset 1px 3px 5px  #000000;
+  background-color:#F9F9F9;
+  border-bottom: none;
+  border-radius: 0px 0px 0px 0px;
+}
+.CalculatorKey {
+  font-size: 15px;
+  margin: 10px;
+  border: none;
+  width :60px;
+  height: 25px;
+  background-color:#E5FFCC;
+  color:#4A6751;
+  border-radius: 5%;
+  text-shadow: -0.5px 0.5px #029D74;
+  box-shadow: 0 2px #029D74;  
+}
+
+.CalculatorKey.KeyPad-ENTER {
+  color:#FFFFFF;
+  border: none;
+  width :140px;
+  height: 25px;
+  background-color:#8B7D7B;
+  border-radius: 4%;
+  text-shadow: -0.5px 1px #029D74;
+  box-shadow: 0 2px #029D74; 
+}
+
+.CalculatorKey.KeyPad-CHC, 
+.CalculatorKey.KeyPad-EEX,
+.CalculatorKey.KeyPad-CLx{
+  color:#FFFFFF;
+  background-color:#8B7D7B;
+  box-shadow: 0 2px #029D74; 
+}
+
+.CalculatorKey.KeyPad--,
+.CalculatorKey.KeyPad-x,
+.CalculatorKey.KeyPad-÷ {
+  color:#FFFFFF;
+  font-size: 20px;
+  background-color:#8B7D7B;
+  box-shadow: 0 2px #029D74; 
+}
+
+.CalculatorKey.KeyPad-1,
+.CalculatorKey.KeyPad-2,
+.CalculatorKey.KeyPad-3,
+.CalculatorKey.KeyPad-4,
+.CalculatorKey.KeyPad-5,
+.CalculatorKey.KeyPad-6,
+.CalculatorKey.KeyPad-7,
+.CalculatorKey.KeyPad-8,
+.CalculatorKey.KeyPad-9,
+.CalculatorKey.KeyPad-0,
+.CalculatorKey.KeyPad-π,
+.CalculatorKey.KeyPad-◘{
+  font-size: 20px;
+  margin: 5px 5px 5px 40px;
+  border: none;
+  width :60px;
+  height: 30px;
+  background-color:#E5FFCC;
+  color:#4A6751;
+  border-radius: 5%;
+  text-shadow: -0.5px 0.5px #029D74;
+  box-shadow: 0 2px #029D74;  
+}
+
