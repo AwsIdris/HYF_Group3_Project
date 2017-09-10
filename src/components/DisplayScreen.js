@@ -15,15 +15,15 @@ export default class DisplayScreen extends React.Component {
   }
 
 	render() {
-		const { displayValue, stack} = this.state
+		
 
 
 		return (
 			<div className="calculator-display">
-          <div >{store.state.stackt}</div>
-          <div >{store.state.stackz}</div>
-          <div >{store.state.stacky}</div>
-          <div >{store.state.stackx}</div>
+          <div >{store.state.stack4}</div>
+          <div >{store.state.stack3}</div>
+          <div >{store.state.stack2}</div>
+          <div >{store.state.stack1}</div>
       </div>
 			)
 	}
