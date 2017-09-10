@@ -83,8 +83,8 @@ export  function operations (value) {
           store.setState({keypressed:true});
           stacky=0  
              break;
-        case ".":var strn=(stackx).toString();
-        if (!(strn).includes('.')){ stackx=stackx+value}
+        case "◘":var strn=(stackx).toString();
+        if (!(strn).includes('.')){ stackx=stackx+'.'}
         break;
         //++++++
         case 'ARC':
@@ -143,7 +143,7 @@ export  function operations (value) {
       store.setState({keypressed:true});
       break;
 
-        default: console.log("undefined selction")
+        default: //console.log("undefined selction")
         };
 //       console.log('stackx=',stackx,'  stacky=',stacky,'  stackz=',stackz,'  stackt=',stackt)
 // console.log('store.x=',store.state.stack1,'  store.y=',store.state.stack2,'  store.z=',store.state.stack3,'  store.t=',store.state.stack4)
@@ -170,7 +170,7 @@ console.log('=============================');
   function covertToDegree(radians) {
     return (radians * 180 / Math.PI)
   }
-console.log('stackx=',stackx,'  stacky=',stacky,'  stackz=',stackz,'  stackt=',stackt)
+//console.log('stackx=',stackx,'  stacky=',stacky,'  stackz=',stackz,'  stackt=',stackt)
 console.log('store.x=',store.state.stack1,'  store.y=',store.state.stack2,'  store.z=',store.state.stack3,'  store.t=',store.state.stack4)
  
   }  
