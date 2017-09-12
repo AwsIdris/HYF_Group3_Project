@@ -87,7 +87,7 @@
 .CalculatorKey.KeyPad-9,
 .CalculatorKey.KeyPad-0,
 .CalculatorKey.KeyPad-π,
-.CalculatorKey.KeyPad-◘{
+.CalculatorKey.KeyPad-\. {
   font-size: 20px;
   margin: 5px 5px 5px 40px;
   border: none;
