@@ -15,7 +15,7 @@ export default class DisplayScreen extends React.Component {
   }
 
 	render() {
-		const { displayValue, stack} = this.state
+		
 
 
 		return (

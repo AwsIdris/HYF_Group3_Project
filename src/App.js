@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import store from './components/store'
-import * as operations  from './components/operations'
 import './App.css'
 import DisplayScreen from './components/DisplayScreen'
 import KeyPad from './components/KeyPad'

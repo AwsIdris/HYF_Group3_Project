@@ -22,11 +22,11 @@ export default class KeyPad extends React.Component {
                       // onClick={()=> input.performOperation(label)
                      
                 )
-              }.bind(this))
+              })
               return (
                 <div className="rows" > {mutants}</div>
               )
-            }.bind(this))
+            })
 
           }
         </div>
@@ -35,8 +35,8 @@ export default class KeyPad extends React.Component {
 }
 	function allKeys(){
 let math=[
-              ["Xy","log","In","ex","CLR"],
-              ["√x","arc","sin","cos","tan"],
+              ["Xy","LOG","LN","ex","CLR"],
+              ["√x","ARC","SIN","COS","TAN"],
               ["1/x","x-y","R↓","STO","RCL"],
               ["ENTER","CHC","EEX","CLx"],
               ["-",7,8,9],
