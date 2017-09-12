@@ -86,6 +86,7 @@ export  function operations (value) {
         case "◘":var strn=(stackx).toString();
         if (!(strn).includes('.')){ stackx=stackx+'.'}
         break;
+        
         //++++++
         case 'ARC':
       if (operation === 'ARC') {
@@ -96,6 +97,7 @@ export  function operations (value) {
       
       break;  
     case 'COS':
+
 
       if (operation === 'ARC') {
         stackx = covertToDegree(Math.acos(Number(stackx)))
