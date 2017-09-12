@@ -1,14 +1,17 @@
 .calculator-display {
   background-color: #2B2B2B;
   width:390px;
-  height: 25%;
+  height: 23%;
   margin: 0;
   color:#E3E3E3;
-  padding:5px;
-  font-size: 30px;
+  padding:5px ;
+  font-size: 25px;
   text-align: left;
-  text-shadow: -0.5px 1px #C21040;
-  box-shadow:  inset 0 0 5px #706565;
+  text-shadow: -0.5px 0.5px #6C7A7D;
   box-shadow:inset 1px 3px 5px  #000000;
   border-radius: 15px 15px 0px 0px;
+}
+
+.stackDiv {
+  margin-left:10px;
 }
