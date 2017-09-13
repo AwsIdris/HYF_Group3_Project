@@ -1,9 +1,7 @@
 import React from 'react'
 import './DisplayScreen.css'
 import store from './store'
-
 export default class DisplayScreen extends React.Component {
-
   componentWillMount() {
     this.subscription = store.subscribe(state => {
       this.setState(state)
@@ -13,19 +11,19 @@ export default class DisplayScreen extends React.Component {
   componentWillUnmount() {
     this.subscription.remove();
   }
-
-	render() {
-		
-
-
-		return (
-			<div className="calculator-display">
-          <div className="stackDiv">{store.state.stack4}</div>
-          <div className="stackDiv">{store.state.stack3}</div>
-          <div className="stackDiv">{store.state.stack2}</div>
-          <div className="stackDiv">{store.state.stack1}</div>
+    render() {
+        
+        return (
+            <div className="calculator-display">
+          <div className="stackDiv">{store.state.stack[3]}</div>
+          <div className="stackDiv">{store.state.stack[2]}</div>
+          <div className="stackDiv">{store.state.stack[1]}</div>
+          <div className="stackDiv">{store.state.stack[0]}</div>
       </div>
-			)
-	}
+            )
+    }
 }
+Add Comment Collapse
+
+
 
