@@ -1,18 +1,9 @@
 import store from './store'
 export  function operations (value) {
-  const {
-    stack4,
-    stack3,
-    stack2,
-    stack1,
-    keypressed,
-   
-   } = store.state
-    let stackt = stack4
-    let stackz = stack3
-    let stacky = stack2
-    let stackx = stack1
-    let operation = keypressed
+  let  [x,y,z,t,] = store.state.stack;
+ 
+    let operation=store.state.keypressed;
+    
     if(store.state.keypressed===true){
       reOrder();
       store.setState({keypressed:false})
@@ -22,69 +13,65 @@ export  function operations (value) {
  
     
     
-    if (Number.isInteger(value) && store.state.lastValue===null){store.setState({lastValue:value});stackx='';stackx=stackx+value.toString() }else
+    if (Number.isInteger(value) && store.state.lastValue===null){
+      console.log("lastvalu =true","value=",value);
+      store.setState({lastValue:value});x='';x=x+value.toString() }else
        if(Number.isInteger(value) && store.state.lastValue!==null) {
-      stackx=stackx+value.toString()
+      x=x+value.toString()
 
     }   
     
     switch(value){
-      case "CLR":
-      stackt=0;
-      stackz=0;
-      stacky=0;
-      stackx=0;
+      case "CLR":[x,y,z,t]=[0,0,0,0];
       store.setState({lastValue:null})
      
     break;
-    case "CLx":  stackx=0;
+    case "CLx":  x=0;
         store.setState({lastValue:null})
     break;
-    case "R↓": let tmp= stackx ;       
-          stackx=stacky;
-          stacky=stackz;
-          stackz=stackt;
-          stackt=tmp;
+    case "R↓": [x,y,z,t]=[y, z, t, x];
+    
           store.setState({lastValue:null})
+
      
     break;
     case "ENTER": 
-          stackt=stackz;
-          stackz=stacky;
-          stacky=stackx;  
+          t=z;
+          z=y;
+          y=x;  
           store.setState({lastValue:null})
           // keyStatus=true;
         break;
-        case "x-y":let oldXvalu=stackx; 
-          stackx=stacky;
-          stacky=oldXvalu;
+        case "x-y":let oldXvalu=x; 
+          x=y;
+          y=oldXvalu;
           store.setState({lastValue:null})
           // keyStatus=true
                     
           
         break;
-        case "+" : stackx=parseFloat(stacky)+parseFloat(stackx);
+        case "+" : x=parseFloat(y)+parseFloat(x);
               store.setState({keypressed:true});
               //  keyStatus=true; 
-               stacky=0           
+               y=0           
         break;
         case "-":
-          stackx=parseFloat(stacky)-parseFloat(stackx);
+          x=parseFloat(y)-parseFloat(x);
           store.setState({keypressed:true});
-          stacky=0  
+          y=0  
              break;
              case "x":
-          stackx=parseFloat(stacky)*parseFloat(stackx);
+          x=parseFloat(y)*parseFloat(x);
           store.setState({keypressed:true});
-          stacky=0  
+          y=0  
              break;
              case "÷":
-          stackx=parseFloat(stacky)/parseFloat(stackx);
+          x=parseFloat(y)/parseFloat(x);
           store.setState({keypressed:true});
-          stacky=0  
+          y=0  
              break;
-        case ".":var strn=(stackx).toString();
-        if (!(strn).includes('.')){ stackx=stackx+value}
+        case "◘":var strn=(x).toString();
+        if (!(strn).includes('.')){ x=x+'.'}
         break;
         
         //++++++
@@ -100,9 +87,9 @@ export  function operations (value) {
 
 
       if (operation === 'ARC') {
-        stackx = covertToDegree(Math.acos(Number(stackx)))
+        x = covertToDegree(Math.acos(Number(x)))
       } else {
-        stackx = Math.cos(convertToRadians(Number(stackx)))
+        x = Math.cos(convertToRadians(Number(x)))
       }
 
       operation = value
@@ -111,9 +98,9 @@ export  function operations (value) {
       break;
     case 'SIN':
       if (operation === 'ARC') {
-        stackx = covertToDegree(Math.asin(Number(stackx)))
+        x = covertToDegree(Math.asin(Number(x)))
       } else {
-        stackx = Math.sin(convertToRadians(Number(stackx)))
+        x = Math.sin(convertToRadians(Number(x)))
       }
 
       operation = value
@@ -121,49 +108,46 @@ export  function operations (value) {
       break;
     case 'TAN':
       if (operation === 'ARC') {
-        stackx = covertToDegree(Math.atan(Number(stackx)))
+        x = covertToDegree(Math.atan(Number(x)))
       } else {
-        stackx = Math.tan(convertToRadians(Number(stackx)))
+        x = Math.tan(convertToRadians(Number(x)))
       }
       operation = value
       store.setState({keypressed:true});
       break;
       //-------------------------
       case 'ex':
-    stackx = Math.exp(Number(stackx))
+    x = Math.exp(Number(x))
     operation = value
     store.setState({keypressed:true});
       break;
     case 'LOG':
-      stackx = Math.log10(Number(stackx))
+      x = Math.log10(Number(x))
       operation = value
       store.setState({keypressed:true});
       break;
     case 'LN':
-      stackx = Math.log(Number(stackx))
+      x = Math.log(Number(x))
       operation = value
       store.setState({keypressed:true});
       break;
 
-        default: console.log("undefined selction")
+        default: //console.log("undefined selction")
         };
-//       console.log('stackx=',stackx,'  stacky=',stacky,'  stackz=',stackz,'  stackt=',stackt)
+//       console.log('x=',x,'  y=',y,'  z=',z,'  t=',t)
 // console.log('store.x=',store.state.stack1,'  store.y=',store.state.stack2,'  store.z=',store.state.stack3,'  store.t=',store.state.stack4)
 console.log('=============================');
 
         store.setState({
-    stack4: stackt,
-    stack3: stackz,
-    stack2: stacky,
-    stack1: stackx,
-    operation : keypressed,
+    stack:[x,y,z,t],
+    keypressed : operation,
     keyStatus:true
     
   })
         function reOrder() {
-    stackt=stackz;
-          stackz=stacky;
-          stacky=stackx;  
+    t=z;
+          z=y;
+          y=x;  
           store.setState({lastValue:null})
     }
         function convertToRadians(degrees) {
@@ -172,7 +156,7 @@ console.log('=============================');
   function covertToDegree(radians) {
     return (radians * 180 / Math.PI)
   }
-console.log('stackx=',stackx,'  stacky=',stacky,'  stackz=',stackz,'  stackt=',stackt)
-console.log('store.x=',store.state.stack1,'  store.y=',store.state.stack2,'  store.z=',store.state.stack3,'  store.t=',store.state.stack4)
+//console.log('x=',x,'  y=',y,'  z=',z,'  t=',t)
+console.log('store.x=',store.state.stack[0],'  store.y=',store.state.stack[1],'  store.z=',store.state.stack[2],'  store.t=',store.state.stack[3])
  
   }  
