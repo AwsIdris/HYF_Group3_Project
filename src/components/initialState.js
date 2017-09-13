@@ -1,5 +1,7 @@
 export default {
     stack:[0,0,0,0],
-    keypressed: false,
-    lastValue:null
+    keypressed: '',
+    memo:0,
+    lastValue:null,
+    prevOperation:null
   }

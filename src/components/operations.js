@@ -1,75 +1,110 @@
 import store from './store'
 export  function operations (value) {
-  let  [x,y,z,t,] = store.state.stack;
- 
-    let operation=store.state.keypressed;
+  let  [x,y,z,t] = store.state.stack,
+       localStack = [x,y,z,t],
+       operation=store.state.keypressed
     
-    if(store.state.keypressed===true){
-      reOrder();
-      store.setState({keypressed:false})
+  if(store.state.keypressed===true){
+    reOrder()
+    store.setState({keypressed:false})
     }
-   
- 
     
-    
+  if(Number.isInteger(value) && store.state.lastValue!==null 
+      && store.state.keypressed === 'SIN' 
+      ||store.state.keypressed === 'COS' 
+      || store.state.keypressed === 'TAN'
+      || store.state.keypressed === '+' 
+      || store.state.keypressed === '-'
+      || store.state.keypressed === 'x'
+      || store.state.keypressed === '÷'
+      || store.state.keypressed === '√x'
+      || store.state.keypressed === '1/x'
+      || store.state.keypressed === 'Xy'
+      || store.state.keypressed === 'LOG'
+      || store.state.keypressed === 'ex'
+      || store.state.keypressed === 'LN'
+      || store.state.keypressed === 'π'
+      || store.state.keypressed === 'STO'
+      || store.state.keypressed === 'RCL'){
+
+        localStack = [x,x,y,z]           
+        localStack[0]='';
+        operation = null
+    }
+    if (store.state.lastValue === 'Error'){
+      store.setState({lastValue: null})
+    }
     if (Number.isInteger(value) && store.state.lastValue===null){
-      console.log("lastvalu =true","value=",value);
-      store.setState({lastValue:value});x='';x=x+value.toString() }else
-       if(Number.isInteger(value) && store.state.lastValue!==null) {
-      x=x+value.toString()
+      store.setState({lastValue:value});
+        localStack[0]='';
+        localStack[0]=localStack[0]+value.toString() 
+    } else if (Number.isInteger(value) && store.state.lastValue!==null) {
+      localStack[0]=localStack[0]+value.toString()
     }   
     
     switch(value){
-      case "CLR":[x,y,z,t]=[0,0,0,0];
+      case "CLR":
+      localStack= [0,0,0,0];
+      store.setState({lastValue:null})    
+      break;
+
+    case "CLx":  localStack[0]=0;
       store.setState({lastValue:null})
-     
-    break;
-    case "CLx":  x=0;
-        store.setState({lastValue:null})
-    break;
-    case "R↓": [x,y,z,t]=[y, z, t, x];
+      break;
+
+    case "R↓": localStack=[y, z, t, x];
     
-          store.setState({lastValue:null})
-     
-    break;
+          store.setState({lastValue:null})     
+      break
+
+    case 'π': 
+        localStack= [3.141592653589793,y,z,t]
+         store.setState({lastValue:value})
+         operation = value
+      break  
+
     case "ENTER": 
-          t=z;
-          z=y;
-          y=x;  
+          localStack = [x,x,y,z]
           store.setState({lastValue:null})
-          // keyStatus=true;
-        break;
-        case "x-y":let oldXvalu=x; 
-          x=y;
-          y=oldXvalu;
+         // keyStatus=true;
+      break;
+
+    case "x-y":
+          localStack = [y,x,z,t]
           store.setState({lastValue:null})
-          // keyStatus=true
-                    
-          
+          // keyStatus=true                            
+      break;
+
+        case "+" : x = parseFloat(y)+parseFloat(x)
+              store.setState({keypressed:value})
+              operation = value
+               reOrderBasicOperation()          
         break;
-        case "+" : x=parseFloat(y)+parseFloat(x);
-              store.setState({keypressed:true});
-              //  keyStatus=true; 
-               y=0           
-        break;
+
         case "-":
           x=parseFloat(y)-parseFloat(x);
-          store.setState({keypressed:true});
-          y=0  
+          store.setState({keypressed:value});
+          operation = value
+             reOrderBasicOperation() 
              break;
-             case "x":
+
+        case "x":
           x=parseFloat(y)*parseFloat(x);
-          store.setState({keypressed:true});
-          y=0  
+          store.setState({keypressed:value});
+          operation = value
+              reOrderBasicOperation()  
              break;
-             case "÷":
+          
+        case "÷":
           x=parseFloat(y)/parseFloat(x);
-          store.setState({keypressed:true});
-          y=0  
+          store.setState({keypressed:value});
+          operation = value
+              reOrderBasicOperation() 
              break;
-        case "◘":var strn=(x).toString();
-        if (!(strn).includes('.')){ x=x+'.'}
-        break;
+
+        case ".":var strn=(x).toString();
+        if (!(strn).includes('.')){ localStack[0]=x+'.'}
+              break;
         
         //++++++
         case 'ARC':
@@ -82,62 +117,109 @@ export  function operations (value) {
       break;  
     case 'COS':
       if (operation === 'ARC') {
-        x = covertToDegree(Math.acos(Number(x)))
+        localStack[0] = covertToDegree(Math.acos(Number(x)))
       } else {
-        x = Math.cos(convertToRadians(Number(x)))
+        localStack[0] = Math.cos(convertToRadians(Number(x)))
       }
       operation = value
-      //store.setState({keypressed:true});
+      store.setState({keypressed:value});
       break;
+
     case 'SIN':
       if (operation === 'ARC') {
-        x = covertToDegree(Math.asin(Number(x)))
+        localStack[0] = covertToDegree(Math.asin(Number(x)))
       } else {
-        x = Math.sin(convertToRadians(Number(x)))
+        localStack[0] = Math.sin(convertToRadians(Number(x)))
       }
       operation = value
-      store.setState({keypressed:true});
+      store.setState({keypressed:value});
       break;
+
     case 'TAN':
       if (operation === 'ARC') {
-        x = covertToDegree(Math.atan(Number(x)))
+        localStack[0] = covertToDegree(Math.atan(Number(x)))
       } else {
-        x = Math.tan(convertToRadians(Number(x)))
+        localStack[0] = Math.tan(convertToRadians(Number(x)))
       }
       operation = value
-      store.setState({keypressed:true});
+      store.setState({keypressed:value})
       break;
-      //-------------------------
+
+
+      case 'Xy':
+        localStack=[Math.pow(x, y),z,t,t]
+        store.setState({keypressed:value})
+        operation = value
+        break
+
+      case '√x':
+        localStack=[Math.sqrt(x),y,z,t]
+        store.setState({keypressed:value})
+        operation = value
+        break
+
+      case '1/x': if( x === '0' ){
+        localStack=['Error',y,z,t]
+        store.setState({lastValue:'Error'})      
+      } else { localStack=[1/parseFloat(x),y,z,t]
+        store.setState({keypressed:value})  
+        operation = value  
+      }
+        break
+
       case 'ex':
-    x = Math.exp(Number(x))
+    localStack = [Math.exp(Number(x)),y,z,t]
     operation = value
-    store.setState({keypressed:true});
-      break;
+    store.setState({keypressed:value});
+      break
+
     case 'LOG':
-      x = Math.log10(Number(x))
+      localStack = [Math.log10(Number(x)),y,z,t]
       operation = value
-      store.setState({keypressed:true});
-      break;
+      store.setState({keypressed:value});
+      break
+
     case 'LN':
-      x = Math.log(Number(x))
+      localStack = [Math.log(Number(x)),y,z,t]
       operation = value
-      store.setState({keypressed:true});
-      break;
+      store.setState({keypressed:value});
+      break
+
+    case 'STO':
+      if (store.state.keypressed === 'STO'){
+        return
+      } else {
+      store.setState({memo:x})
+      store.setState({keypressed:value})
+      operation = value}
+      break
+
+     case 'RCL':
+       localStack = [store.state.memo,x,y,z]
+       operation = value
+       store.setState({keypressed:value})
+       break
+
         default: //console.log("undefined selction")
         };
 //       console.log('x=',x,'  y=',y,'  z=',z,'  t=',t)
 // console.log('store.x=',store.state.stack1,'  store.y=',store.state.stack2,'  store.z=',store.state.stack3,'  store.t=',store.state.stack4)
 console.log('=============================');
         store.setState({
-    stack:[x,y,z,t],
+    stack:localStack,
     keypressed : operation,
     keyStatus:true
     
   })
+
+  //to re order the stack ater the basic operators +,-,*,/
+        function reOrderBasicOperation(){
+          localStack = [x,z,t,t]
+        }
+
+
         function reOrder() {
-    t=z;
-          z=y;
-          y=x;  
+          
           store.setState({lastValue:null})
     }
         function convertToRadians(degrees) {
