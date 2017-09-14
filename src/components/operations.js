@@ -11,17 +11,17 @@ export  function operations (value) {
     
   if(Number.isInteger(value) && store.state.lastValue!==null 
       && store.state.keypressed === 'SIN' 
-      ||store.state.keypressed === 'COS' 
+      || store.state.keypressed === 'COS' 
       || store.state.keypressed === 'TAN'
       || store.state.keypressed === '+' 
       || store.state.keypressed === '-'
       || store.state.keypressed === 'x'
       || store.state.keypressed === '÷'
       || store.state.keypressed === '√x'
-      || store.state.keypressed === '1/x'
-      || store.state.keypressed === 'Xy'
+      || store.state.keypressed === '¹/x'
+      || store.state.keypressed === 'xʸ'
       || store.state.keypressed === 'LOG'
-      || store.state.keypressed === 'ex'
+      || store.state.keypressed === 'eˣ'
       || store.state.keypressed === 'LN'
       || store.state.keypressed === 'π'
       || store.state.keypressed === 'STO'
@@ -48,7 +48,7 @@ export  function operations (value) {
       store.setState({lastValue:null})    
       break;
 
-    case "CLx":  localStack[0]=0;
+    case "CLX":  localStack[0]=0;
       store.setState({lastValue:null})
       break;
 
@@ -63,13 +63,13 @@ export  function operations (value) {
          operation = value
       break  
 
-    case "ENTER": 
+    case "Enter ↑": 
           localStack = [x,x,y,z]
           store.setState({lastValue:null})
          // keyStatus=true;
       break;
 
-    case "x-y":
+    case "x↔︎y":
           localStack = [y,x,z,t]
           store.setState({lastValue:null})
           // keyStatus=true                            
@@ -146,7 +146,7 @@ export  function operations (value) {
       break;
 
 
-      case 'Xy':
+      case 'xʸ':
         localStack=[Math.pow(x, y),z,t,t]
         store.setState({keypressed:value})
         operation = value
@@ -158,7 +158,7 @@ export  function operations (value) {
         operation = value
         break
 
-      case '1/x': if( x === '0' ){
+      case '¹/x': if( x === '0' ){
         localStack=['Error',y,z,t]
         store.setState({lastValue:'Error'})      
       } else { localStack=[1/parseFloat(x),y,z,t]
@@ -167,7 +167,7 @@ export  function operations (value) {
       }
         break
 
-      case 'ex':
+      case 'eˣ':
     localStack = [Math.exp(Number(x)),y,z,t]
     operation = value
     store.setState({keypressed:value});
