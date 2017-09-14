@@ -29,10 +29,10 @@ export default class KeyPad extends React.Component {
 }
     function allKeys(){
 let math=[
-              ["Xy","LOG","LN","ex","CLR"],
+              ["xʸ","LOG","LN","eˣ","CLR"],
               ["√x","ARC","SIN","COS","TAN"],
-              ["1/x","x-y","R↓","STO","RCL"],
-              ["ENTER","CHC","EEX","CLx"],
+              ["¹/x","x↔︎y","R↓","STO","RCL"],
+              ["Enter ↑","CHC","EEX","CLX"],
               ["-",7,8,9],
               ['+',4,5,6],
               ["x",1,2,3],
