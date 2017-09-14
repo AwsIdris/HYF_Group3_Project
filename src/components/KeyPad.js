@@ -11,32 +11,30 @@ export default class KeyPad extends React.Component {
             allKeys().map(function(row){
               var mutants = row.map(function(operand){
                 return (
-                  <button className={`CalculatorKey KeyPad-${operand}`}
-                  
-                     onClick={()=>fn.operations(operand)}> {operand}</button>
-                                          
-               )
+                  <button className={`CalculatorKey KeyPad-${operand}`}                 
+                    	    onClick={()=>fn.operations(operand)}> {operand}</button>                               
+                        )
               })
               return (
                 <div className="rows" > {mutants}</div>
-              )
+                      )
             })
+          }
+            </div>
+              )
+            }   
+          }
 
-         }
-        </div>
-            )
-    }
-}
     function allKeys(){
-let math=[
+    let math=[
               ["xʸ","LOG","LN","eˣ","CLR"],
               ["√x","ARC","SIN","COS","TAN"],
               ["¹/x","x↔︎y","R↓","STO","RCL"],
-              ["Enter ↑","CHC","EEX","CLX"],
+              ["Enter ↑","CHS","EEX","CLX"],
               ["-",7,8,9],
               ['+',4,5,6],
               ["x",1,2,3],
               ["÷",0,".","π"]
-          ]     ;
-            return math;
+          ]    
+            return math
 }

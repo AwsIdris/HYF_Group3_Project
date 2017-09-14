@@ -3,5 +3,4 @@ export default {
     keypressed: '',
     memo:0,
     lastValue:null,
-    prevOperation:null
   }
