@@ -1,6 +1,6 @@
 export default {
     stack:[0,0,0,0],
-    keypressed:'',
-    lastValue:null
-  } 
-
+    keypressed: '',
+    memo:0,
+    lastValue:null,
+  }

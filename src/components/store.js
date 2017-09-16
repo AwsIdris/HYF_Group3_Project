@@ -1,4 +1,3 @@
-
 import initialState from './initialState'
 
 class Store {
