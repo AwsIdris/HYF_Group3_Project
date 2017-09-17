@@ -1,14 +1,20 @@
 .calculator-display {
-  background-color: #2B2B2B;
-  width:390px;
-  height: 25%;
+  letter-spacing: 2px;  font-family: Orbitron;
+  background-color: #1E0309;
+  width:296px;
+  height: 23%;
   margin: 0;
-  color:#E3E3E3;
-  padding:5px;
-  font-size: 30px;
+  color:#CE354A;
+  padding:17px ;
+  font-size: 18px;
   text-align: left;
-  text-shadow: -0.5px 1px #C21040;
-  box-shadow:  inset 0 0 5px #706565;
-  box-shadow:inset 1px 3px 5px  #000000;
-  border-radius: 15px 15px 0px 0px;
+  text-shadow: 0px 0px 3px ;  
+  box-shadow:inset 1px 0px 30px  #000000;
+  border-radius: 7px 7px 0px 0px;
+  border: solid 2px #97E6FC;
+  border-bottom:none;
+}
+
+.stackDiv {
+  margin-left:10px;
 }

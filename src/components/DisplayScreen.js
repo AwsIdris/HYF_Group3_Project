@@ -1,7 +1,6 @@
 import React from 'react'
 import './DisplayScreen.css'
 import store from './store'
-
 export default class DisplayScreen extends React.Component {
 
   componentWillMount() {
@@ -9,23 +8,20 @@ export default class DisplayScreen extends React.Component {
       this.setState(state)
     })
   }
-
   componentWillUnmount() {
     this.subscription.remove();
   }
-
-	render() {
-		
-
-
-		return (
-			<div className="calculator-display">
-          <div >{store.state.stack4}</div>
-          <div >{store.state.stack3}</div>
-          <div >{store.state.stack2}</div>
-          <div >{store.state.stack1}</div>
-      </div>
-			)
-	}
-}
+    render() {   
+      return (
+        <div className="calculator-display1">
+          <div className="calculator-display">
+            <div className="stackDiv">{store.state.stack[3]}</div>
+            <div className="stackDiv">{store.state.stack[2]}</div>
+            <div className="stackDiv">{store.state.stack[1]}</div>
+            <div className="stackDiv">{store.state.stack[0]}</div>
+         </div>
+        </div>
+             )
+      }   
+    }
 
