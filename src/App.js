@@ -10,12 +10,12 @@ export default class App extends Component {
       this.setState(state)
     })
   }
- componentWillUnmount(){
+  componentWillUnmount(){
 
    store.subscription.remove();
  }
   
-render() {
+  render() {
     return (
       <div className="calculatorBody">
        <DisplayScreen />
