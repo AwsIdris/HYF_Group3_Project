@@ -3,6 +3,7 @@ import store from './components/store'
 import './App.css'
 import DisplayScreen from './components/DisplayScreen'
 import KeyPad from './components/KeyPad'
+import ProgramPlatform from './components/ProgramPlatform'
 
 export default class App extends Component {
   componentWillMount(){
@@ -18,8 +19,11 @@ export default class App extends Component {
   render() {
     return (
       <div className="calculatorBody">
+        <div>
        <DisplayScreen />
-       <KeyPad /> 
+       <KeyPad />
+        </div>
+          <ProgramPlatform /> 
       </div>
     )
   } 
