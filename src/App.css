@@ -1,13 +1,15 @@
 .calculatorBody{
-  width:370px;
-  height: 565px;
+  width:800px;
+  height: 575px;
   padding-top:20px; 
   margin:50px auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   border-radius: 0px 0px 20px 20px;
-  background-color:#10171C;
+  background-color:#white;
   border-radius: 5px 5px 0px 0px;
+
 }
  

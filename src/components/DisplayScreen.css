@@ -9,9 +9,9 @@
   font-size: 18px;
   text-align: left;
   text-shadow: 0px 0px 3px ;  
-  box-shadow:inset 1px 0px 30px  #000000;
+    box-shadow: 1px 4px 7px #10171C;
   border-radius: 7px 7px 0px 0px;
-  border: solid 2px #97E6FC;
+
   border-bottom:none;
 }
 
